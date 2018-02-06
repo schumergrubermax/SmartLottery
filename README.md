@@ -23,9 +23,9 @@ Make sure to have the following tools installed on your machine
 3. Inside this folder run `npm install -g ethereumjs-testrpc` to install the testrpc client. testrpc is a node.js based Ethereum client, especially useful for testing and development purposes by simulating a full Ethereum client. Be patient as installation may take some time.
 4. Run `npm install` to download missing packages for the frontend application.
 
-Thats it, you are ready to roll!
+That's it, you are ready to roll!
 
-### Running the testrpc blockchain
+### Running the testrpc
 
 1. In your `SmartLottery` folder start up testrpc with executing `testrpc` in your terminal
 2. The output will look like this, giving you a simulated ethereum client on your local machine exposed on port 8545 with predefined accounts, that have 100 testethers each. Save the mnemonic words somewhere for later.
@@ -58,7 +58,7 @@ Listening on localhost:8545
 
 1. Visit http://remix.ethereum.org in your browser to get the Remix Ethereum IDE.
 2. Copy the provided code from the `notes/01_SmartLottery.sol` file into the editor to have syntax highlighting and code annotations. Advanced setup: You can alternatively link your local folder to Remix or use your own IDE/editor with Solidity code support.
-3. Try to fill out the missing pieces of code, diving deep into the Solidity language. As a reference, the [Solidity documentation](https://solidity.readthedocs.io/en/develop/) might be helpful.
+3. Try to fill out the missing pieces of code, diving deep into the Solidity language. As a reference, the [Solidity documentation](https://solidity.readthedocs.io/en/develop/) might be helpful. Do not change the given methods, method parameters or variables.
 
 ### Test your contract
 
