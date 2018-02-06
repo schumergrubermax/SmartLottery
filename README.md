@@ -58,8 +58,23 @@ Listening on localhost:8545
 
 1. Visit http://remix.ethereum.org in your browser to get the Remix Ethereum IDE.
 2. Copy the provided code from the `notes/01_SmartLottery.sol` file into the editor to have syntax highlighting and code annotations. Advanced setup: You can alternatively link your local folder to Remix or use your own IDE/editor with Solidity code support.
-3. Try to fill out the missing pieces of code, diving deep into the Solidity language. As a reference, the [Solidity documentation](https://solidity.readthedocs.io/en/develop/) might be helpful. Do not change the given methods, method parameters or variables.
+3. Try to fill out the missing pieces of code, diving deep into the Solidity language. As a reference, the [Solidity documentation](https://solidity.readthedocs.io/en/develop/) might be helpful. 
 
-### Test your contract
+Tips:
+* Do *not* change the given methods, method parameters or variables.
+* Start small, write the getter-methods first.
+* Try to understand the concepts, you the code will be provided during the next steps.
 
-tbd.
+### Test your contract manually using Remix
+
+On the built-in Remix EVM:
+
+1. Go to `Run > Environment` and set Environment to `Javascript VM` to use the built-in Remix virtual machine.
+2. Select the account, you want to deploy the contract with (any of them should be fine)
+3. Select `SmartLottery` as the contract name you want to deploy and press the red `Create` button to send the contract creation transaction to the (simulated) blockchain client. You should now see some buttons to interact with the contract functions.
+
+*Alternatively:* on your local testrpc blockchain client:
+
+1. Check if testrpc is still running, otherwise fire it up again with `testrpc` in your terminal. By default it should communicate on `http://localhost:8545`.
+2. In Remix, set `Run > Environment` to `Web3 Provider` and  enter `http://localhost:8545`, if issues occur try `http://127.0.01:8545`. You can use this method to provide *any* ethereum client, e.g. geth or parity. For convenience, we will just use testrpc.
+3. Follow same instructions as above.
