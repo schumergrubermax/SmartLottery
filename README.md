@@ -1,6 +1,6 @@
 # Smart Contract Workshop
 
-##Goal: your own Lottery DApp
+## Goal: your own Lottery DApp
 
 ![Animated DApp](./notes/animation.gif)
 
