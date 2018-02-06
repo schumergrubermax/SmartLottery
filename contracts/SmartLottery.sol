@@ -11,7 +11,7 @@ contract SmartLottery {
     address[6] public slots;
     address public admin;
 
-    /* Contract instance */
+    /* Contract constructor */
     function SmartLottery() public {
         admin = msg.sender;
     }
