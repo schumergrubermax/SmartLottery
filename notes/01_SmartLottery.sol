@@ -16,11 +16,6 @@ contract SmartLottery {
         // code missing here
     }
 
-    /* Modifiers */
-    modifier adminOnly {
-        // code missing here
-    }
-
     /*
      * Contract functions
      */
@@ -54,7 +49,7 @@ contract SmartLottery {
 
     /* Fallback function, if other functions don't match */
     function() public {
-        // code missing here
+        revert();
     }
 
 }
