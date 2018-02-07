@@ -73,8 +73,19 @@ On the built-in Remix EVM:
 2. Select the account, you want to deploy the contract with (any of them should be fine)
 3. Select `SmartLottery` as the contract name you want to deploy and press the red `Create` button to send the contract creation transaction to the (simulated) blockchain client. You should now see some buttons to interact with the contract functions.
 
-*Alternatively:* on your local testrpc blockchain client:
+### Done coding? Deploy on testrpc
 
-1. Check if testrpc is still running, otherwise fire it up again with `testrpc` in your terminal. By default it should communicate on `http://localhost:8545`.
-2. In Remix, set `Run > Environment` to `Web3 Provider` and  enter `http://localhost:8545`, if issues occur try `http://127.0.01:8545`. You can use this method to provide *any* ethereum client, e.g. geth or parity. For convenience, we will just use testrpc.
-3. Follow same instructions as above.
+Alternatively, you can run your contract locally on testrpc and interfere with it using Remix.
+
+1. Check if testrpc is still running, otherwise fire it up again with `testrpc` in your terminal. By default it should communicate on `http://localhost:8545`. If you want to reuse the same accounts, you can start testrpc by feeding it the 12 mnemonic words as listed on the first start of testrpc. Try to recreate the same accounts with executing `testrpc -m "fashion edit hawk describe slush exercise trick scan practice silk pond vital".` Whereas you may substitute the 12 menemonic words with those you have saved previously.
+2. In Remix, set `Run > Environment` to `Web3 Provider` and  enter `http://localhost:8545`, if issues occur try `http://127.0.01:8545`. You can use this method to provide *any* ethereum client, e.g. geth or parity. For convenience, we will just use testrpc in this workshop, as geth or other clients might take al longer while to sync. After you successfully connected to the client
+3. Select `SmartLottery` as the contract name you want to deploy and press the red `Create` button to send the contract creation transaction to the (simulated) blockchain client. You should now see some buttons to interact with the contract functions.
+
+### Play the lottery without a fronted
+
+In Remix, you should now have a functioning contract you can interact with. 
+
+
+### Start with developing the frontend
+
+Progress to the next part. In the project directory, type `git checkout step-two`
