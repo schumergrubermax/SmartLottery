@@ -65,7 +65,7 @@ Tips:
 * Start small, write the getter-methods first.
 * Try to understand the concepts, you the code will be provided during the next steps.
 
-### Test your contract manually using Remix
+### Done coding? Test your contract manually using Remix
 
 On the built-in Remix EVM:
 
@@ -73,19 +73,22 @@ On the built-in Remix EVM:
 2. Select the account, you want to deploy the contract with (any of them should be fine)
 3. Select `SmartLottery` as the contract name you want to deploy and press the red `Create` button to send the contract creation transaction to the (simulated) blockchain client. You should now see some buttons to interact with the contract functions.
 
-### Done coding? Deploy on testrpc
+### Deploy the contract locally on testrpc
 
-Alternatively, you can run your contract locally on testrpc and interfere with it using Remix.
+Alternatively, you can run your contract locally on testrpc and interact with it using Remix.
 
-1. Check if testrpc is still running, otherwise fire it up again with `testrpc` in your terminal. By default it should communicate on `http://localhost:8545`. If you want to reuse the same accounts, you can start testrpc by feeding it the 12 mnemonic words as listed on the first start of testrpc. Try to recreate the same accounts with executing `testrpc -m "fashion edit hawk describe slush exercise trick scan practice silk pond vital".` Whereas you may substitute the 12 menemonic words with those you have saved previously.
-2. In Remix, set `Run > Environment` to `Web3 Provider` and  enter `http://localhost:8545`, if issues occur try `http://127.0.01:8545`. You can use this method to provide *any* ethereum client, e.g. geth or parity. For convenience, we will just use testrpc in this workshop, as geth or other clients might take al longer while to sync. After you successfully connected to the client
+1. Check if testrpc is still running, otherwise fire it up again with `testrpc` in your terminal. By default it should communicate on `http://localhost:8545`. If you want to reuse the same accounts, you can start testrpc by feeding it the 12 mnemonic words as listed on the first start of testrpc. Try to recreate the same accounts with executing `testrpc -m "fashion edit hawk describe slush exercise trick scan practice silk pond vital"`. Whereas you may substitute the 12 menemonic words with those you have saved previously.
+2. In Remix, set `Run > Environment` to `Web3 Provider` and  enter `http://localhost:8545`, if issues occur try `http://127.0.01:8545`. You can use this method to provide *any* ethereum client, e.g. geth or parity. For convenience, we will just use testrpc in this workshop, as geth or other clients might take a longer while to sync. After you successfully connected to the client, you should be able to see the same 10 addresses, as previously shown when firing up testrpc on the commandline, each of them pre-filled with 100 testethers. 
 3. Select `SmartLottery` as the contract name you want to deploy and press the red `Create` button to send the contract creation transaction to the (simulated) blockchain client. You should now see some buttons to interact with the contract functions.
 
 ### Play the lottery without a fronted
 
-In Remix, you should now have a functioning contract you can interact with. 
+In Remix, you should now have a functioning contract you can interact with. Feel free to play around, these given steps may help you. 
+
+As you may see, there are buttons in different colors. Blue colored buttons are *calls*, that only query data in a "read-only" fashion, therefore do not cost any ether. On the other side, red buttons depict *transactions*, that perform write-operations on a blockchain that need to update state or update other accounts. As something gets persisted on the chain, ether must be sent to pay for the miner to include the transaction in a block.
 
 
-### Start with developing the frontend
+### Congratulations!
 
-Progress to the next part. In the project directory, type `git checkout step-two`
+You may now start with developing the matching frontend application to your contract.
+To progress to the next part, inside the project directory, type `git checkout stage-02-frontend` and have a look at the instructions in  the readme file.
