@@ -21,7 +21,6 @@ Make sure to have the following tools installed on your machine
 1. In a destination of your choice, e.g. your desktop or `~/code/`, clone this repository with `git clone <repository url>` or download it
 2. Navigate with terminal to the folder `SmartLottery` you just created. From now on, all commands shown should be executed inside this `SmartLottery` directory.
 3. Inside this folder run `npm install -g ethereumjs-testrpc` to install the testrpc client. testrpc is a node.js based Ethereum client, especially useful for testing and development purposes by simulating a full Ethereum client. Be patient as installation may take some time.
-4. Run `npm install` to download missing packages for the frontend application.
 
 That's it, you are ready to roll!
 
@@ -63,7 +62,7 @@ Listening on localhost:8545
 Tips:
 * Do *not* change the given methods, method parameters or variables.
 * Start small, write the getter-methods first.
-* Try to understand the concepts, you the code will be provided during the next steps.
+* Try to understand the concepts, even if you can't get everything running, the code will be provided during the next steps.
 
 ### Done coding? Test your contract manually using Remix
 
@@ -91,4 +90,4 @@ As you may see, there are buttons in different colors. Blue colored buttons are 
 ### Congratulations!
 
 You may now start with developing the matching frontend application to your contract.
-To progress to the next part, inside the project directory, type `git checkout stage-02-frontend` and have a look at the instructions in  the readme file.
+To progress to the next part, inside the project directory, type `git checkout stage-testing` and have a look at the instructions in  the readme file.
