@@ -13,74 +13,38 @@ contract SmartLottery {
 
     /* Contract constructor */
     function SmartLottery() public {
-        admin = msg.sender;
-    }
-
-    /* Modifiers */
-    modifier adminOnly {
-        require(msg.sender == admin);
-        _;
+        // code missing here
     }
 
     /*
      * Contract functions
      */
     function bet(uint slotId) payable public returns (uint) {
-        require(slotId >= 0 && slotId < slotSize);
-        require(msg.value == slotPrice);
-
-        slots[slotId] = msg.sender;
-        soldSlots = soldSlots + 1;
-
-        if (soldSlots >= slotSize) {
-            pickWinner();
-        }
-
-        return slotId;
+        // code missing here
     }
 
     function getParticipants() public view returns (address[6]) {
-        return slots;
+        // code missing here
     }
 
     function getParticipantById(uint slotId) public view returns (address) {
-        return slots[slotId];
+        // code missing here
     }
 
     function pickWinner() private returns (address) { // only callable from this contract
-        // pick winner
-        uint winnerSlot = badRandomFunction();
-        address winner = slots[winnerSlot];
-
-        // send pot to winner
-        winner.transfer(this.balance);
-
-        // reset SmartLottery for next run
-        resetSmartLottery();
-        return winner;
+        // code missing here
     }
 
     function getPotValue() public view returns (uint256) {
-        return this.balance;
+        // code missing here
     }
 
     function resetSmartLottery() private {
-        delete soldSlots;
-        delete slots;
-    }
-
-    function resetSmartLotteryManual() public adminOnly {
-        // give people their money back
-        for(uint i = 0; i < slotSize; i++) {
-            slots[i].transfer(slotPrice);
-        }
-        // reset variables
-        resetSmartLottery();
+        // code missing here
     }
 
     function badRandomFunction() public view returns (uint) {
-        // bad example, better use: https://gist.github.com/alexvandesande/259b4ffb581493ec0a1c
-        return uint(sha256(soldSlots, block.timestamp)) % slotSize;
+        // code missing here
     }
 
     /* Fallback function, if other functions don't match */
