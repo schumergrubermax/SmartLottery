@@ -52,55 +52,27 @@ App = {
   },
 
   getContractAddress: function() {
-      var smartLotteryInstance;
-
-      App.contracts.SmartLottery.deployed().then(function(instance) {
-          smartLotteryInstance = instance;
-          return smartLotteryInstance.address;
-      }).then(function(address)  {
-          $('.contractAtAddress').text('at \'' + address+ '\'');
-      }).catch(function(err) {
-          console.log(err.message);
-      });
+      /*
+       * Set .contractAtAddress with deployed contracts address
+       */
   },
 
   getAdminAddress: function() {
-     var smartLotteryInstance;
-
-     App.contracts.SmartLottery.deployed().then(function(instance) {
-        smartLotteryInstance = instance;
-        return smartLotteryInstance.admin();
-     }).then(function(admin)  {
-        $('#adminAddress').text(admin);
-     }).catch(function(err) {
-        console.log(err.message);
-     });
+      /*
+       * Set #adminAddress value with contract creator address/admin
+       */
   },
 
   getSoldSlots: function() {
-        var smartLotteryInstance;
-
-        App.contracts.SmartLottery.deployed().then(function(instance) {
-            smartLotteryInstance = instance;
-            return smartLotteryInstance.soldSlots();
-        }).then(function(slotsSold)  {
-            $('#slotsSold').text(slotsSold);
-        }).catch(function(err) {
-            console.log(err.message);
-        });
+      /*
+       * Set #slotsSold value with sold slots information from deployed contract
+       */
   },
 
   getSlotPrice: function() {
-        var smartLotteryInstance;
-
-        App.contracts.SmartLottery.deployed().then(function(instance) {
-            smartLotteryInstance = instance;
-            return smartLotteryInstance.slotPrice();
-        }).then(function(slotPrice)  {
-            $('#slotPrice').text(slotPrice + ' wei');
-        }).catch(function(err) {
-            console.log(err.message);
-        });
+      /*
+       * Set #slotPrice value as defined by deployed contract
+       */
   },
 
   markSlotsSold: function() {
@@ -140,18 +112,16 @@ App = {
 
   makeBet: function(event) {
     var slotId = parseInt($(event.target).attr('id'));
-      var smartLotteryInstance;
-      web3.eth.getAccounts(function(error, accounts) {
-          var account = accounts[0];
-          App.contracts.SmartLottery.deployed().then(function(instance) {
-              smartLotteryInstance = instance;
-              return smartLotteryInstance.bet(slotId, {from: account, value: 1000000000000000000});
-          }).then(function() {
-              return App.markSlotsSold();
-          }).catch(function(err) {
-              console.log(err.message);
-          });
-      });
+
+    var smartLotteryInstance;
+    web3.eth.getAccounts(function(error, accounts) {
+        var account = accounts[0];
+
+        /*
+         * Make bet on slotId with a mininum bet value of 1 ether from sending account[0].
+         */
+
+    });
   }
 };
 

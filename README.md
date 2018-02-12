@@ -39,8 +39,50 @@ accounts only locally.
 Your Metamask account should now show the first account as listed in testrpc prefilled with testether.
 ![Metamask Account](./notes/01_metamask.png)
 
+### Try filling out the missing pieces in the frontend
+
+##### 1. Making contract calls / writing getter functions
+With the use of web3, you may interact with the contract and its functions. Go to `src/js/app.js` and try to fill out the blanks.
+The snippet may help you get along with query data from a contract and resolving promises.
+
+```
+var smartLotteryInstance;
+
+App.contracts.SmartLottery.deployed().then(function(instance) {
+  smartLotteryInstance = instance;
+  return smartLotteryInstance.<attribute name/function() call>;
+}).then(function(result)  {
+  // do something with the promised result
+  // $('<some HTML identifier>').text('Put result here:' + <result variable>);
+}).catch(function(err) {
+  console.log(err.message);
+});
+```
+
+##### 2. Calling contract transactions / makeBet() function
+
+Now, try to write the function for making a bet. Instead of just querying data in a call, this time you need to build and send a transaction.
+The above code may again be helpful to make calls to a contract. 
+
+Calling the contract's `bet()` function in `makeBet()` function must provide a `slotId` as a parameter to specificy the slot that should be bought.
+Additionally, if ethers are transferred, further parameters must be passed along when calling the bet() function.  A transaction that wants to send ethers must specify three parameters in an json object:
+                                     
+```
+{ 
+ from: <the account sending the transaction>,
+ to: <receiving address/contract address>,
+ value: <amount of wei to send in the transaction>
+}
+```
+The ticketprice you need to define is 1 ether. Either you may define this sum in wei, a subunit of ether, using a [helpful converter](https://etherconverter.online/) or you make use of [helpful web3.js converter functions like](https://github.com/ethereum/wiki/wiki/JavaScript-API#web3towei) `web3.toWei()`. 
+
+After the transaction is sent and the promise is resolved, call `markSlotsSold()` to update the UI.
+
 ### Running the Lottery web app
 
-To spin up the frontend, in your main directory `SmartLottery` run the command `npm run dev` to get the DApp running.
+To spin up the frontend, in your main directory `SmartLottery` run the command `npm run dev` in a new command line window to get the DApp running.
+A webserver should start and display how to access the website locally.
 
 ### Congratulations!
+
+To see the final DApp, proceed by executing `git checkout stage-dapp`
