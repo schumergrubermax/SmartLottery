@@ -1,46 +1,34 @@
 # Smart Contract Workshop
 
-### From Contract to DApp
+### Get dependencies
 
 Make sure, all packages are installed. Since you switched branches, type `npm install` again to get all
-missing packages for the frontend application in your `SmartLottery` directory.
+missing packages for the frontend application in your project's main `SmartLottery` directory.
 
-### Connecting to web3
+### Make sure testrpc is running
 
-In order to make any UI able to "speak" via RPC calls, you may use [Ethereums web3.js](https://github.com/ethereum/web3.js/) library.
-It creates a connection to a web3-capable client, just like `testrpc` and may communicate over a specified URL and port.
-If you followed the instructions, testrpc you started used no specific port or url. This defaults to `http://localhost:8545` respectively `http://127.0.0.1:8545`.
+Run `testrpc -m "carry easy spice pupil expand later night jewel screen torch advance turkey"`
+with replacing your own 12 word seed phrase.
 
-Usually, any Ethereum client software such as geth, parity or the simulated testrpc is capable of assigning custom IPs/domains and ports.
+### Run the frontend
 
-In `src/js/app.js` your Decentralized Application is trying to connect to a client via web3.
-```
-if (typeof web3 !== 'undefined') {
-   App.web3Provider = web3.currentProvider;
- } else {
-   App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
- }
-```
-This snippet as defined by web3.js tries to connect to a web3 provider/a blockchain it can talk to via RPC calls.
+Type `npm run dev` in a new command line window from the projects base directoy.
+The website should correctly display "Smart Lottery not deployed."
 
-### Providing web3 endpoint
+### Import accounts in Metamask
 
-In order to connect to the fronted-application with above snippet, you need to run a client, that connects to a blockchain node. In our case, we will use Metamask.
-Make sure testrpc is still running and copy the 12 word mnemonic into memory again.
+Either using the private keys or 12 word the seed phrase, import the accounts needed to play the lottery into Metamask.
+When refreshing the fronted, you should be able to see the chosen account's address as well as the balance of 100 ethers.
 
-In your browser you should find Metamask installed, accept all agreements and proceed in choosing a network different from the Ethereum Mainnet.
-You may set the network in Metamask to "Localhost 8545" or to "Custom RPC". If you chose "Custom RPC", then enter `http://127.0.0.1:8545` as RPC connection.
+### Deploy the contract
 
-After setting the correct network to our testrpc-node, click "Logout" inside Metamask (Burger Menu Icon) and re-login using 
-the option "Restore with seed-phrase", as if you had forgotten your password. Here you may enter the 12 word menomic words
-to restore the accounts, as shown in testrpc inside of Metamask. Choose some easy to remember password, you will use those
-accounts only locally.
+When testrpc is running, run `truffle migrate --all` to (re)deploy all contracts defined.
+Deployment will take a while, afterwards, if you refresh the fronted application, your base account should have less than 100 ethers as
+it was used to deploy the Smart Lottery contract. Also, the headline should now tell you the contract address as well as its parameters.
 
-Your Metamask account should now show the first account as listed in testrpc prefilled with testether.
-![Metamask Account](./notes/01_metamask.png)
+### Play the lottery!
 
-### Running the Lottery web app
+Everything should be set up now to interact with your contract with Metamask.
+Click the "Bet" button on any slot to buy it. A winner will be chosen after all slots are sold and the lottery will be reset.
 
-To spin up the frontend, in your main directory `SmartLottery` run the command `npm run dev` to get the DApp running.
-
-### Congratulations!
+![Smart Lottery](./notes/01-screenshot.png)
