@@ -7,7 +7,7 @@ App = {
       var slotRow = $('#slotRow');
       var slotTemplate = $('#slotTemplate');
 
-      // get slot size from contract
+      // ToDo: get slot size from contract
       for (var i = 0; i < 6; i++) {
         slotTemplate.find('.slot-number').text(i);
         slotTemplate.find('.btn-slot').attr('id', i);
@@ -34,13 +34,13 @@ App = {
   },
 
   initContract: function() {
+      // Load contract ABI and instantiate it with truffle
       $.getJSON('SmartLottery.json', function(data) {
-          // Get the necessary contract artifact file and instantiate it with truffle-contract
           var SmartLotteryArtifact = data;
           App.contracts.SmartLottery = TruffleContract(SmartLotteryArtifact);
-
           App.contracts.SmartLottery.setProvider(App.web3Provider);
 
+          // after contract is known, start gathering contract information
           return App.getContractAddress(), App.getAdminAddress(), App.getSoldSlots(), App.getSlotPrice(), App.markSlotsSold();
       });
 
@@ -145,14 +145,8 @@ App = {
           var account = accounts[0];
           App.contracts.SmartLottery.deployed().then(function(instance) {
               smartLotteryInstance = instance;
-              console.log(smartLotteryInstance);
-              var ret = smartLotteryInstance.bet(slotId, {from: account, value: 1000000000000000000});
-              console.log(ret);
-              return ret;
-
-          }).then(function(result) {
-              console.log("Result");
-              console.log(result);
+              return smartLotteryInstance.bet(slotId, {from: account, value: 1000000000000000000});
+          }).then(function() {
               return App.markSlotsSold();
           }).catch(function(err) {
               console.log(err.message);
