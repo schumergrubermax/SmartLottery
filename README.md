@@ -91,4 +91,4 @@ The command line output should look similiar like this:
 ### Congratulations!
 
 You may now start with developing the matching frontend application to your contract.
-To progress to the next part, inside the project directory, type `git checkout stage-dapp` and have a look at the instructions in  the readme file.
+To progress to the next part, inside the project directory, type `git checkout stage-frontend` and have a look at the instructions in  the readme file.
