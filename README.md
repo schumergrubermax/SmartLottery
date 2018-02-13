@@ -16,11 +16,18 @@ Make sure to have the following tools installed on your machine
  4. [Sublime Text](http://sublimetext.com) or any other text editor/IDE you already use
  5. [Git](https://git-scm.com/downloads)
 
+### Stage approach
+
+We will follow this example in multiple steps. Even if you cannot finish e.g. one of the programming tasks in time, you may always
+skip to the next branch and start with the previous step 
+
 ### Project setup
 
+For windows users: use the Windows Powershell or Git Bash (right click in Explorer, open Git Bash here)
+
 1. In a destination of your choice, e.g. your desktop or `~/code/`, clone this repository with `git clone <repository url>` or download it
-2. Navigate with terminal to the folder `SmartLottery` you just created. From now on, all commands shown should be executed inside this `SmartLottery` directory.
-3. Inside this folder run `npm install -g ethereumjs-testrpc` to install the testrpc client. testrpc is a node.js based Ethereum client, especially useful for testing and development purposes by simulating a full Ethereum client. Be patient as installation may take some time.
+2. Navigate with terminal to the folder you just cloned. Type `cd SmartLottery`. From now on, all commands shown should be executed inside this `SmartLottery` directory.
+3. If you haven't already, run `npm install -g ethereumjs-testrpc` to install the testrpc client. testrpc is a node.js based Ethereum client, especially useful for testing and development purposes by simulating a full Ethereum client. Be patient as installation may take some time.
 
 That's it, you are ready to roll!
 
@@ -32,22 +39,21 @@ That's it, you are ready to roll!
 ```
 Available Accounts
 ==================
-(0) 0x4866a48f97cee3c3b6d4f749fcdc630cdedb6a2d
-(1) 0xbf59a5dfc3998eecf6877fa85f4820901bce1af7
-(2) 0x40ff2f06eb7366fe0ec7a3ff7a1211c2a3f2e5ed
+(0) 0x8e03294385e5c8130512a2da3f3162a3aa9aa386
+(1) 0xaac72bdd60cb3acb69cb6cd628d0fd4a23da1bf5
+(2) 0xb38e1be95b5ba779bc7f4b65734d651ef0e641c4
 ...
 
 Private Keys
 ==================
-(0) bbf2169d7c3022e1fab7c9a504a1f44fc1fa541280455e81bafb9973fe7dd9f6
-(1) 6bac1dc3cd780225d8bee781279cbf49a767fec013b1266eb5a9906d40db3978
-(2) d71ea5e4af9a9727cb36a4774783a893ede6ab2b2cabcfdaab0a5ea56719c124
-(3) f90d0a6775aca7a9c662a05512b0c7f37bb86ab43e3623ecdbbca6ba537ed407
+(0) a621b1e12823b46ce970aaedd149b3c83d4bc47c59871a59f16648e4cffb370d
+(1) 24d408a509a497132e983ffbe15aa0cadaebd384102985ca84749f1fc2ae0000
+(2) d05723f0d16906b34e4b5ed95243fa052a6b09fd0a7b7c33215a8fe0e595b9ee
 ...
 
 HD Wallet
 ==================
-Mnemonic:      fashion edit hawk describe slush exercise trick scan practice silk pond vital
+Mnemonic:      carry easy spice pupil expand later night jewel screen torch advance turkey
 Base HD Path:  m/44'/60'/0'/0/{account_index}
 
 Listening on localhost:8545
@@ -66,7 +72,7 @@ Tips:
 
 ### Done coding? Test your contract manually using Remix
 
-On the built-in Remix EVM:
+In Remix settings:
 
 1. Go to `Run > Environment` and set Environment to `Javascript VM` to use the built-in Remix virtual machine.
 2. Select the account, you want to deploy the contract with (any of them should be fine)
@@ -76,8 +82,10 @@ On the built-in Remix EVM:
 
 Alternatively, you can run your contract locally on testrpc and interact with it using Remix.
 
-1. Check if testrpc is still running, otherwise fire it up again with `testrpc` in your terminal. By default it should communicate on `http://localhost:8545`. If you want to reuse the same accounts, you can start testrpc by feeding it the 12 mnemonic words as listed on the first start of testrpc. Try to recreate the same accounts with executing `testrpc -m "fashion edit hawk describe slush exercise trick scan practice silk pond vital"`. Whereas you may substitute the 12 menemonic words with those you have saved previously.
-2. In Remix, set `Run > Environment` to `Web3 Provider` and  enter `http://localhost:8545`, if issues occur try `http://127.0.01:8545`. You can use this method to provide *any* ethereum client, e.g. geth or parity. For convenience, we will just use testrpc in this workshop, as geth or other clients might take a longer while to sync. After you successfully connected to the client, you should be able to see the same 10 addresses, as previously shown when firing up testrpc on the commandline, each of them pre-filled with 100 testethers. 
+1. Check if testrpc is still running, otherwise fire it up again with `testrpc` in your terminal. By default it should communicate on `http://localhost:8545`. If you want to reuse the same accounts, you can start testrpc by feeding it the 12 mnemonic words 
+as listed on the first start of testrpc. Try to recreate the same accounts with executing `testrpc -m "carry easy spice pupil expand later night jewel screen torch advance turkey"`. Whereas you may substitute the 12 menemonic words with those you have saved previously.
+2. In Remix, set `Run > Environment` to `Web3 Provider` and  enter `http://localhost:8545`, if issues occur try `http://127.0.01:8545`. You can use this method to provide *any* ethereum client, e.g. geth or parity. For convenience, we will just use testrpc in this workshop, 
+as geth or other clients might take a longer while to sync. After you successfully connected to the client, you should be able to see the same 10 addresses, as previously shown when firing up testrpc on the commandline, each of them pre-filled with 100 testethers. 
 3. Select `SmartLottery` as the contract name you want to deploy and press the red `Create` button to send the contract creation transaction to the (simulated) blockchain client. You should now see some buttons to interact with the contract functions.
 
 ### Play the lottery without a fronted
