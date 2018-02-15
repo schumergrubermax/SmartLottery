@@ -16,6 +16,11 @@ contract SmartLottery {
         // code missing here
     }
 
+    /* Modifiers */
+    modifier adminOnly {
+        // code missing here
+    }
+
     /*
      * Contract functions
      */
@@ -40,6 +45,10 @@ contract SmartLottery {
     }
 
     function resetSmartLottery() private {
+        // code missing here
+    }
+
+    function resetSmartLotteryManual() public adminOnly {
         // code missing here
     }
 

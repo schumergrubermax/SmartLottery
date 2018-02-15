@@ -16,11 +16,18 @@ contract SmartLottery {
         admin = msg.sender;
     }
 
+    /* Modifiers */
+    modifier adminOnly {
+        require(msg.sender == admin);
+        _;
+    }
+
     /*
      * Contract functions
      */
     function bet(uint slotId) payable public returns (uint) {
         require(slotId >= 0 && slotId < slotSize);
+        require(slots[slotId] == 0x0);
         require(msg.value == slotPrice);
 
         slots[slotId] = msg.sender;
@@ -61,6 +68,15 @@ contract SmartLottery {
     function resetSmartLottery() private {
         delete soldSlots;
         delete slots;
+    }
+
+    function resetSmartLotteryManual() public adminOnly {
+        // give people their money back
+        for(uint i = 0; i < soldSlots; i++) {
+            slots[i].transfer(slotPrice);
+        }
+        // reset variables
+        resetSmartLottery();
     }
 
     function badRandomFunction() public view returns (uint) {
