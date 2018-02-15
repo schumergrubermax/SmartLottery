@@ -27,6 +27,7 @@ contract SmartLottery {
      */
     function bet(uint slotId) payable public returns (uint) {
         require(slotId >= 0 && slotId < slotSize);
+        require(slots[slotId] == 0x0);
         require(msg.value == slotPrice);
 
         slots[slotId] = msg.sender;
@@ -71,7 +72,7 @@ contract SmartLottery {
 
     function resetSmartLotteryManual() public adminOnly {
         // give people their money back
-        for(uint i = 0; i < slotSize; i++) {
+        for(uint i = 0; i < soldSlots; i++) {
             slots[i].transfer(slotPrice);
         }
         // reset variables
