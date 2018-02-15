@@ -62,7 +62,7 @@ Listening on localhost:8545
 ### Smart Contract development with Remix
 
 1. Visit http://remix.ethereum.org in your browser to get the Remix Ethereum IDE.
-2. Copy the provided code from the `notes/01_SmartLottery.sol` file into the editor to have syntax highlighting and code annotations. Advanced setup: You can alternatively link your local folder to Remix or use your own IDE/editor with Solidity code support.
+2. Copy the provided code from the `contracts/SmartLottery.sol` file into the editor to have syntax highlighting and code annotations. Advanced setup: You can alternatively link your local folder to Remix or use your own IDE/editor with Solidity code support.
 3. Try to fill out the missing pieces of code, diving deep into the Solidity language. As a reference, the [Solidity documentation](https://solidity.readthedocs.io/en/develop/) might be helpful. 
 
 Tips:
