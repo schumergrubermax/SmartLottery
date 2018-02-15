@@ -67,7 +67,7 @@ Saving artifacts...
 
 ### Test your contract with truffle test
 
-You successfully wrote your contract? Copy your contract code from Remix into `contracts/SmartLottery.sol`. If your code was incomplete or had bugs, take the code from `02_SmartLottery.sol` instead.
+You successfully wrote your contract? Copy your contract code from Remix into `contracts/SmartLottery.sol`. If your code was incomplete or had bugs, take the code from `/notes/02_SmartLottery.sol` instead.
 
 In `tests/testSmartLottery.js`you can find Javascript tests that make calls and transactions via web3 to test the contract code. They make use of Mocha as a testing framework and Chai assertions, two popular testing frameworks.
 
