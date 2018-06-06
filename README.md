@@ -31,9 +31,9 @@ For windows users: use the Windows Powershell or Git Bash (right click in Explor
 
 That's it, you are ready to roll!
 
-### Running the testrpc
+### Running ganache
 
-1. In your `SmartLottery` folder start up testrpc with executing `ganache-cli` in your terminal
+1. In your `SmartLottery` folder start up ganache with executing `ganache-cli` in your terminal
 2. The output will look like this, giving you a simulated ethereum client on your local machine exposed on port 8545 with predefined accounts, that have 100 testethers each. Save the mnemonic words somewhere for later.
 
 ```
@@ -78,7 +78,7 @@ In Remix settings:
 2. Select the account, you want to deploy the contract with (any of them should be fine)
 3. Select `SmartLottery` as the contract name you want to deploy and press the red `Create` button to send the contract creation transaction to the (simulated) blockchain client. You should now see some buttons to interact with the contract functions.
 
-### Deploy the contract locally on testrpc
+### Deploy the contract locally on ganache
 
 Alternatively, you can run your contract locally on ganache-cli and interact with it using Remix.
 
