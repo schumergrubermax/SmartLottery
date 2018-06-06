@@ -11,7 +11,7 @@
 Make sure to have the following tools installed on your machine
 
  1. [nodejs](https://nodejs.org/en/download/) in the latest version (tested node.js (>= v6.11.5) )
- 2. [testrpc](https://github.com/ethereumjs/testrpc) see instructions in project setup
+ 2. [ganache-cli](https://github.com/trufflesuite/ganache-cli) see instructions in project setup
  3. [Metamask](http://metamask.io) Chrome or Firefox extension
  4. [Sublime Text](http://sublimetext.com) or any other text editor/IDE you already use
  5. [Git](https://git-scm.com/downloads)
@@ -19,7 +19,7 @@ Make sure to have the following tools installed on your machine
 ### Stage approach
 
 We will follow this example in multiple steps. Even if you cannot finish e.g. one of the programming tasks in time, you may always
-skip to the next branch and start with the previous step 
+skip to the next branch and start with the previous step. Instructions for the follow-up branch are given at the very bottom of each README file.
 
 ### Project setup
 
@@ -27,13 +27,13 @@ For windows users: use the Windows Powershell or Git Bash (right click in Explor
 
 1. In a destination of your choice, e.g. your desktop or `~/code/`, clone this repository with `git clone <repository url>` or download it
 2. Navigate with terminal to the folder you just cloned. Type `cd SmartLottery`. From now on, all commands shown should be executed inside this `SmartLottery` directory.
-3. If you haven't already, run `npm install -g ethereumjs-testrpc` to install the testrpc client. testrpc is a node.js based Ethereum client, especially useful for testing and development purposes by simulating a full Ethereum client. Be patient as installation may take some time.
+3. If you haven't already, run `npm install -g ganache-cli` to install the ganache command line interface client. Ganache-cli (former name: "testrpc") is a node.js based Ethereum client, especially useful for testing and development purposes by simulating a full Ethereum client. Be patient as installation may take some time.
 
 That's it, you are ready to roll!
 
 ### Running the testrpc
 
-1. In your `SmartLottery` folder start up testrpc with executing `testrpc` in your terminal
+1. In your `SmartLottery` folder start up testrpc with executing `ganache-cli` in your terminal
 2. The output will look like this, giving you a simulated ethereum client on your local machine exposed on port 8545 with predefined accounts, that have 100 testethers each. Save the mnemonic words somewhere for later.
 
 ```
@@ -80,17 +80,17 @@ In Remix settings:
 
 ### Deploy the contract locally on testrpc
 
-Alternatively, you can run your contract locally on testrpc and interact with it using Remix.
+Alternatively, you can run your contract locally on ganache-cli and interact with it using Remix.
 
-1. Check if testrpc is still running, otherwise fire it up again with `testrpc` in your terminal. By default it should communicate on `http://localhost:8545`. If you want to reuse the same accounts, you can start testrpc by feeding it the 12 mnemonic words 
-as listed on the first start of testrpc. Try to recreate the same accounts with executing `testrpc -m "carry easy spice pupil expand later night jewel screen torch advance turkey"`. Whereas you may substitute the 12 menemonic words with those you have saved previously.
-2. In Remix, set `Run > Environment` to `Web3 Provider` and  enter `http://localhost:8545`, if issues occur try `http://127.0.01:8545`. You can use this method to provide *any* ethereum client, e.g. geth or parity. For convenience, we will just use testrpc in this workshop, 
-as geth or other clients might take a longer while to sync. After you successfully connected to the client, you should be able to see the same 10 addresses, as previously shown when firing up testrpc on the commandline, each of them pre-filled with 100 testethers. 
+1. Check if ganache-cli is still running, otherwise fire it up again with `ganache-cli` in your terminal. By default it should communicate on `http://localhost:8545`. If you want to reuse the same accounts, you can start ganache-cli by feeding it the 12 mnemonic words 
+as listed on the first start of the program. Try to recreate the same accounts with executing `ganache-cli -m "carry easy spice pupil expand later night jewel screen torch advance turkey"`. Whereas you may substitute the 12 menemonic words with those you have saved previously.
+2. In Remix, set `Run > Environment` to `Web3 Provider` and  enter `http://localhost:8545`, if issues occur try `http://127.0.01:8545`. You can use this method to provide *any* ethereum client, e.g. geth or parity. For convenience, we will just use ganache-cli in this workshop, 
+as geth or other clients might take a longer while to sync. After you successfully connected to the client, you should be able to see the same 10 addresses, as previously shown when firing up ganache-cli on the commandline, each of them pre-filled with 100 testethers. 
 3. Select `SmartLottery` as the contract name you want to deploy and press the red `Create` button to send the contract creation transaction to the (simulated) blockchain client. You should now see some buttons to interact with the contract functions.
 
 ### Play the lottery without a fronted
 
-In Remix, you should now have a functioning contract you can interact with. Feel free to play around, these given steps may help you. 
+In Remix, you should now have a functioning contract you can interact with. Feel free to play around, the steps given in this tutorial may help you. 
 
 As you may see, there are buttons in different colors. Blue colored buttons are *calls*, that only query data in a "read-only" fashion, therefore do not cost any ether. On the other side, red buttons depict *transactions*, that perform write-operations on a blockchain that need to update state or update other accounts. As something gets persisted on the chain, ether must be sent to pay for the miner to include the transaction in a block.
 
