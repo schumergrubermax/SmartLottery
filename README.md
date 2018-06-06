@@ -5,9 +5,9 @@
 Make sure, all packages are installed. Since you switched branches, type `npm install` again to get all
 missing packages for the frontend application in your project's main `SmartLottery` directory.
 
-### Make sure testrpc is running
+### Make sure ganache-cli is running
 
-Run `testrpc -m "carry easy spice pupil expand later night jewel screen torch advance turkey"`
+Run `ganache-cli -m "carry easy spice pupil expand later night jewel screen torch advance turkey"`
 with replacing your own 12 word seed phrase.
 
 ### Run the frontend
@@ -22,7 +22,7 @@ When refreshing the fronted, you should be able to see the chosen account's addr
 
 ### Deploy the contract
 
-When testrpc is running, run `truffle migrate --all` to (re)deploy all contracts defined.
+When ganache is running, run `truffle migrate --all` to (re)deploy all contracts defined.
 Deployment will take a while, afterwards, if you refresh the fronted application, your base account should have less than 100 ethers as
 it was used to deploy the Smart Lottery contract. Also, the headline should now tell you the contract address as well as its parameters.
 
