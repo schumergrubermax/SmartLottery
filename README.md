@@ -36,7 +36,7 @@ module.exports = function(deployer) {
 };
 ```
 
-If your testrpc is running, try:
+If your ganache-cli is running, try:
 
 1. `truffle compile` to create the contract ABIs in the /build/ folder
 2. `truffle migrate` to deploy (existing/unchanged) ABIs to the blockchain network
@@ -71,7 +71,7 @@ You successfully wrote your contract? Copy your contract code from Remix into `c
 
 In `tests/testSmartLottery.js`you can find Javascript tests that make calls and transactions via web3 to test the contract code. They make use of Mocha as a testing framework and Chai assertions, two popular testing frameworks.
 
-Make sure testrpc is still working and execute `truffle test` on your command line to execute the given Javascript tests. Feel free to change or add more tests.
+Make sure ganache-cli is still working and execute `truffle test` on your command line to execute the given Javascript tests. Feel free to change or add more tests.
 The command line output should look similiar like this:
 ```
   Contract: Smart Lottery

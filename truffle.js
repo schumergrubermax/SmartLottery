@@ -3,8 +3,8 @@ module.exports = {
   // for more about customizing your Truffle configuration!
 
     /*
-     * for usage with TestRPC:
-     * > testrpc
+     * for usage with Ganache:
+     * > ganache-cli
      * > truffle test --network development
      */
 
